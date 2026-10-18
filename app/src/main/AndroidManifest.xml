@@ -89,6 +89,15 @@
         </activity-alias>
 
         <activity
+            android:name=".app.setup.SetupActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|smallestScreenSize|density|screenLayout|keyboard|keyboardHidden|navigation"
+            android:label="@string/application_name"
+            android:resizeableActivity="true"
+            android:theme="@style/Theme.TermuxSetup.DayNight"
+            tools:targetApi="n" />
+
+        <activity
             android:name=".app.activities.HelpActivity"
             android:exported="false"
             android:label="@string/application_name"

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Drawer -->
+    <string name="drawer_sessions_title">Сессии</string>
+    <string name="action_open_appearance_setup">Оформление</string>
+
+    <!-- First run setup: navigation -->
+    <string name="setup_back">Назад</string>
+    <string name="setup_next">Далее</string>
+    <string name="setup_start">Начать</string>
+    <string name="setup_install">Установить</string>
+    <string name="setup_apply">Применить</string>
+    <string name="setup_open_terminal">Открыть терминал</string>
+    <string name="setup_step_counter">Шаг %1$d из %2$d</string>
+
+    <!-- Welcome -->
+    <string name="setup_welcome_title">Добро пожаловать в Termux</string>
+    <string name="setup_welcome_body">Полноценный Linux у тебя в кармане. Давай настроим внешний вид — это займёт меньше минуты.</string>
+    <string name="setup_welcome_feature_packages">Тысячи пакетов через pkg</string>
+    <string name="setup_welcome_feature_tools">Python, Node.js, Git, SSH и многое другое</string>
+    <string name="setup_welcome_feature_design">Дизайн Material You в цветах твоих обоев</string>
+
+    <!-- Colors -->
+    <string name="setup_colors_title">Цвета терминала</string>
+    <string name="setup_colors_body">Выбери цветовую схему. Её можно поменять в любой момент из бокового меню.</string>
+    <string name="scheme_material_you">Material You</string>
+    <string name="scheme_material_you_desc">Цвета из твоих обоев</string>
+    <string name="scheme_material_you_unavailable">Нужен Android 12 или новее</string>
+    <string name="scheme_classic">Классическая</string>
+    <string name="scheme_classic_desc">Оригинальный вид Termux</string>
+    <string name="scheme_catppuccin">Catppuccin Mocha</string>
+    <string name="scheme_catppuccin_desc">Мягкие пастельные тона</string>
+    <string name="scheme_dracula">Dracula</string>
+    <string name="scheme_dracula_desc">Яркая и контрастная</string>
+    <string name="scheme_nord">Nord</string>
+    <string name="scheme_nord_desc">Спокойные северные оттенки</string>
+
+    <!-- Font -->
+    <string name="setup_font_title">Шрифт</string>
+    <string name="setup_font_body">Выбери шрифт и размер. Позже размер можно менять щипком двумя пальцами.</string>
+    <string name="font_jetbrains_mono">JetBrains Mono</string>
+    <string name="font_system">Системный</string>
+    <string name="setup_font_size">Размер шрифта</string>
+
+    <!-- Shell -->
+    <string name="setup_shell_title">Оболочка</string>
+    <string name="setup_shell_body">Последние штрихи для командной строки.</string>
+    <string name="setup_shell_prompt">Красивое приглашение</string>
+    <string name="setup_shell_prompt_desc">Двухстрочное приглашение с текущей папкой. Стрелка краснеет, если команда завершилась с ошибкой.</string>
+    <string name="setup_shell_greeting">Приветствие</string>
+    <string name="setup_shell_greeting_desc">Короткое приветствие с полезными командами в каждой новой сессии.</string>
+    <string name="setup_shell_storage">Доступ к памяти телефона</string>
+    <string name="setup_shell_storage_desc">Создаёт папку ~/storage со ссылками на Загрузки, DCIM и другие папки.</string>
+
+    <!-- Install -->
+    <string name="setup_installing_title">Устанавливаем</string>
+    <string name="setup_installing_body">Распаковываем базовую систему. Это нужно только один раз.</string>
+    <string name="setup_applying_title">Применяем</string>
+    <string name="setup_applying_body">Сохраняем новое оформление.</string>
+    <string name="setup_status_unpacking">Распаковываем пакеты…</string>
+    <string name="setup_status_applying">Применяем оформление…</string>
+    <string name="setup_done_title">Всё готово!</string>
+    <string name="setup_done_body">Termux готов. Попробуй pkg install python или pkg upgrade.</string>
+    <string name="setup_apply_failed">Не удалось сохранить оформление: %1$s</string>
+
+    <!-- Greeting (~/.termux/motd.sh) -->
+    <string name="motd_subtitle">Linux у тебя в кармане</string>
+    <string name="motd_install">установить пакет</string>
+    <string name="motd_upgrade">обновить всё</string>
+    <string name="motd_storage">доступ к файлам телефона</string>
+    <string name="motd_change_repo">выбрать быстрое зеркало</string>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Drawer -->
+    <string name="drawer_sessions_title">Sessions</string>
+    <string name="action_open_appearance_setup">Appearance</string>
+
+    <!-- First run setup: navigation -->
+    <string name="setup_back">Back</string>
+    <string name="setup_next">Next</string>
+    <string name="setup_start">Get started</string>
+    <string name="setup_install">Install</string>
+    <string name="setup_apply">Apply</string>
+    <string name="setup_open_terminal">Open terminal</string>
+    <string name="setup_step_counter">Step %1$d of %2$d</string>
+
+    <!-- Welcome -->
+    <string name="setup_welcome_title">Welcome to Termux</string>
+    <string name="setup_welcome_body">A full Linux environment in your pocket. Let\'s make it look the way you like — it takes less than a minute.</string>
+    <string name="setup_welcome_feature_packages">Thousands of packages with pkg</string>
+    <string name="setup_welcome_feature_tools">Python, Node.js, Git, SSH and more</string>
+    <string name="setup_welcome_feature_design">Material You design that follows your wallpaper</string>
+
+    <!-- Colors -->
+    <string name="setup_colors_title">Terminal colors</string>
+    <string name="setup_colors_body">Pick a color scheme. You can change it any time from the drawer.</string>
+    <string name="scheme_material_you">Material You</string>
+    <string name="scheme_material_you_desc">Colors from your wallpaper</string>
+    <string name="scheme_material_you_unavailable">Requires Android 12 or newer</string>
+    <string name="scheme_classic">Classic</string>
+    <string name="scheme_classic_desc">The original Termux look</string>
+    <string name="scheme_catppuccin">Catppuccin Mocha</string>
+    <string name="scheme_catppuccin_desc">Soft pastel colors</string>
+    <string name="scheme_dracula">Dracula</string>
+    <string name="scheme_dracula_desc">Bold and vivid</string>
+    <string name="scheme_nord">Nord</string>
+    <string name="scheme_nord_desc">Calm arctic blues</string>
+
+    <!-- Font -->
+    <string name="setup_font_title">Font</string>
+    <string name="setup_font_body">Choose a typeface and size. You can also pinch the terminal to zoom later.</string>
+    <string name="font_jetbrains_mono">JetBrains Mono</string>
+    <string name="font_system">System</string>
+    <string name="setup_font_size">Font size</string>
+
+    <!-- Shell -->
+    <string name="setup_shell_title">Shell</string>
+    <string name="setup_shell_body">A few finishing touches for the command line.</string>
+    <string name="setup_shell_prompt">Beautiful prompt</string>
+    <string name="setup_shell_prompt_desc">Two line prompt with the current folder. The arrow turns red when a command fails.</string>
+    <string name="setup_shell_greeting">Greeting</string>
+    <string name="setup_shell_greeting_desc">A short welcome with useful commands in every new session.</string>
+    <string name="setup_shell_storage">Access to phone storage</string>
+    <string name="setup_shell_storage_desc">Creates ~/storage with links to Downloads, DCIM and other folders.</string>
+
+    <!-- Install -->
+    <string name="setup_installing_title">Installing</string>
+    <string name="setup_installing_body">Unpacking the base system. This only happens once.</string>
+    <string name="setup_applying_title">Applying</string>
+    <string name="setup_applying_body">Saving your new look.</string>
+    <string name="setup_status_unpacking">Unpacking packages…</string>
+    <string name="setup_status_applying">Applying your style…</string>
+    <string name="setup_done_title">All set!</string>
+    <string name="setup_done_body">Termux is ready. Try pkg install python or pkg upgrade.</string>
+    <string name="setup_apply_failed">Could not save the appearance: %1$s</string>
+
+    <!-- Greeting (~/.termux/motd.sh) -->
+    <string name="motd_subtitle">Linux in your pocket</string>
+    <string name="motd_install">install a package</string>
+    <string name="motd_upgrade">update everything</string>
+    <string name="motd_storage">access phone files</string>
+    <string name="motd_change_repo">pick a faster mirror</string>
+</resources>

@@ -3,6 +3,8 @@ package com.termux.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.android.material.color.DynamicColors;
+
 import com.termux.BuildConfig;
 import com.termux.shared.errors.Error;
 import com.termux.shared.logger.Logger;
@@ -23,6 +25,9 @@ public class TermuxApplication extends Application {
 
     public void onCreate() {
         super.onCreate();
+
+        // Material You: apply the wallpaper based dynamic color palette to all activities on Android 12+
+        DynamicColors.applyToActivitiesIfAvailable(this);
 
         Context context = getApplicationContext();
 

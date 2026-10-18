@@ -20,4 +20,13 @@
 
     <color name="blue_link_light">#0969DA</color>
     <color name="blue_link_dark">#58A6FF</color>
+
+    <!-- Material 3 fallback palette (seed #006C4C) used when dynamic color is unavailable. -->
+    <color name="m3_seed_primary_light">#006C4C</color>
+    <color name="m3_seed_primary_container_light">#89F8C7</color>
+    <color name="m3_seed_on_primary_container_light">#002114</color>
+    <color name="m3_seed_primary_dark">#6CDBAC</color>
+    <color name="m3_seed_on_primary_dark">#003826</color>
+    <color name="m3_seed_primary_container_dark">#005138</color>
+    <color name="m3_seed_on_primary_container_dark">#89F8C7</color>
 </resources>

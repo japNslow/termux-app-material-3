@@ -57,12 +57,22 @@ import static com.termux.shared.termux.TermuxConstants.TERMUX_STAGING_PREFIX_DIR
  * <p/>
  * (5.2) For every other zip entry, extract it into $STAGING_PREFIX and set execute permissions if necessary.
  */
-final class TermuxInstaller {
+public final class TermuxInstaller {
 
     private static final String LOG_TAG = "TermuxInstaller";
 
     /** Performs bootstrap setup if necessary. */
     static void setupBootstrapIfNeeded(final Activity activity, final Runnable whenDone) {
+        setupBootstrapIfNeeded(activity, whenDone, true);
+    }
+
+    /**
+     * Performs bootstrap setup if necessary.
+     *
+     * @param showProgressDialog If the "Installing..." progress dialog should be shown. The setup
+     *                           activity shows its own progress UI instead.
+     */
+    public static void setupBootstrapIfNeeded(final Activity activity, final Runnable whenDone, final boolean showProgressDialog) {
         String bootstrapErrorMessage;
         Error filesDirectoryAccessibleError;
 
@@ -114,7 +124,8 @@ final class TermuxInstaller {
             Logger.logInfo(LOG_TAG, "The termux prefix directory \"" + TERMUX_PREFIX_DIR_PATH + "\" does not exist but another file exists at its destination.");
         }
 
-        final ProgressDialog progress = ProgressDialog.show(activity, null, activity.getString(R.string.bootstrap_installer_body), true, false);
+        final ProgressDialog progress = showProgressDialog ?
+            ProgressDialog.show(activity, null, activity.getString(R.string.bootstrap_installer_body), true, false) : null;
         new Thread() {
             @Override
             public void run() {
@@ -229,7 +240,7 @@ final class TermuxInstaller {
                 } finally {
                     activity.runOnUiThread(() -> {
                         try {
-                            progress.dismiss();
+                            if (progress != null) progress.dismiss();
                         } catch (RuntimeException e) {
                             // Activity already dismissed - ignore.
                         }
@@ -274,7 +285,7 @@ final class TermuxInstaller {
             true, false, TermuxUtils.AppInfoMode.TERMUX_AND_PLUGIN_PACKAGES, true);
     }
 
-    static void setupStorageSymlinks(final Context context) {
+    public static void setupStorageSymlinks(final Context context) {
         final String LOG_TAG = "termux-storage";
         final String title = TermuxConstants.TERMUX_APP_NAME + " Setup Storage Error";
 

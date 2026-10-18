@@ -1,29 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--
-     https://material.io/develop/android/theming/dark
+     Material 3 (Material You) dark themes.
+     https://m3.material.io/develop/android/mdc-android
     -->
 
     <!--
      BaseActivity DayNight DarkActionBar theme.
-     https://github.com/material-components/material-components-android/blob/1.4.0/lib/java/com/google/android/material/theme/res/values/themes.xml#L27
+     https://github.com/material-components/material-components-android/blob/1.12.0/lib/java/com/google/android/material/theme/res/values/themes.xml
     -->
-    <style name="Theme.BaseActivity.DayNight.DarkActionBar" parent="Theme.MaterialComponents">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/red_400</item>
-        <item name="colorPrimaryVariant">@color/red_800</item>
-        <item name="colorOnPrimary">@color/black</item>
-
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/grey_400</item>
-        <item name="colorSecondaryVariant">@color/grey_500</item>
-        <item name="colorOnSecondary">@color/black</item>
+    <style name="Theme.BaseActivity.DayNight.DarkActionBar" parent="Theme.Material3.Dark">
+        <!-- Fallback brand colors for devices without dynamic color (Android < 12). -->
+        <item name="colorPrimary">@color/m3_seed_primary_dark</item>
+        <item name="colorOnPrimary">@color/m3_seed_on_primary_dark</item>
+        <item name="colorPrimaryContainer">@color/m3_seed_primary_container_dark</item>
+        <item name="colorOnPrimaryContainer">@color/m3_seed_on_primary_container_dark</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="colorPrimaryDark" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
 
         <!-- Text color. -->
         <item name="android:textColorLink">@color/blue_link_dark</item>
+
+        <item name="alertDialogTheme">@style/ThemeOverlay.BaseDialog.DayNight</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.BaseDialog.DayNight</item>
     </style>
 
     <!-- BaseActivity DayNight NoActionBar theme. -->
@@ -38,23 +38,9 @@
 
     <!--
       BaseDialog DayNight theme.
-      https://github.com/material-components/material-components-android/blob/1.4.0/lib/java/com/google/android/material/dialog/res/values/themes.xml#L70
-     -->
-    <style name="ThemeOverlay.BaseDialog.DayNight" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/red_400</item>
-        <item name="colorPrimaryVariant">@color/red_800</item>
-        <item name="colorOnPrimary">@color/black</item>
-
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/grey_400</item>
-        <item name="colorSecondaryVariant">@color/grey_500</item>
-        <item name="colorOnSecondary">@color/black</item>
-
-        <!-- Surface color. -->
-        <item name="colorSurface">@color/design_dark_default_color_surface</item>
-        <item name="colorOnSurface">@color/design_dark_default_color_on_surface</item>
-
+      https://github.com/material-components/material-components-android/blob/1.12.0/lib/java/com/google/android/material/dialog/res/values/themes.xml
+    -->
+    <style name="ThemeOverlay.BaseDialog.DayNight" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <!-- Dialog title panel style. -->
         <item name="materialAlertDialogTitlePanelStyle">@style/BaseDialog.Title.Panel</item>
 

@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -28,6 +29,8 @@ import android.widget.Toast;
 
 import com.termux.R;
 import com.termux.app.api.file.FileReceiverActivity;
+import com.termux.app.setup.SetupActivity;
+import com.termux.app.setup.TerminalAppearance;
 import com.termux.app.terminal.TermuxActivityRootView;
 import com.termux.app.terminal.TermuxTerminalSessionActivityClient;
 import com.termux.app.terminal.io.TermuxTerminalExtraKeys;
@@ -54,14 +57,17 @@ import com.termux.shared.termux.settings.properties.TermuxAppSharedProperties;
 import com.termux.shared.termux.theme.TermuxThemeUtils;
 import com.termux.shared.theme.NightMode;
 import com.termux.shared.view.ViewUtils;
+import com.termux.terminal.TerminalColors;
 import com.termux.terminal.TerminalSession;
 import com.termux.terminal.TerminalSessionClient;
+import com.termux.terminal.TextStyle;
 import com.termux.view.TerminalView;
 import com.termux.view.TerminalViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.ColorUtils;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
@@ -189,6 +195,8 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
     private static final int CONTEXT_MENU_SETTINGS_ID = 8;
     private static final int CONTEXT_MENU_REPORT_ID = 9;
 
+    private static final int REQUEST_APPEARANCE_SETUP = 1300;
+
     private static final String ARG_TERMINAL_TOOLBAR_TEXT_INPUT = "terminal_toolbar_text_input";
     private static final String ARG_ACTIVITY_RECREATED = "activity_recreated";
 
@@ -212,6 +220,14 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         setActivityTheme();
 
         super.onCreate(savedInstanceState);
+
+        // Show the Material You first run setup instead of the plain bootstrap progress dialog
+        if (TerminalAppearance.shouldShowSetup(this)) {
+            mIsInvalidState = true;
+            startActivity(new Intent(this, SetupActivity.class));
+            finish();
+            return;
+        }
 
         setContentView(R.layout.activity_termux);
 
@@ -568,6 +584,11 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         settingsButton.setOnClickListener(v -> {
             ActivityUtils.startActivity(this, new Intent(this, SettingsActivity.class));
         });
+
+        findViewById(R.id.appearance_button).setOnClickListener(v -> {
+            getDrawer().closeDrawers();
+            startActivityForResult(new Intent(this, SetupActivity.class), REQUEST_APPEARANCE_SETUP);
+        });
     }
 
     private void setNewSessionButtonView() {
@@ -795,6 +816,10 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         Logger.logVerbose(LOG_TAG, "onActivityResult: requestCode: " + requestCode + ", resultCode: "  + resultCode + ", data: "  + IntentUtils.getIntentString(data));
         if (requestCode == PermissionUtils.REQUEST_GRANT_STORAGE_PERMISSION) {
             requestStoragePermission(true);
+        } else if (requestCode == REQUEST_APPEARANCE_SETUP && resultCode == RESULT_OK) {
+            // Colors, font, font size and the extra keys were changed in SetupActivity
+            reloadActivityStyling(false);
+            mTerminalView.setTextSize(mPreferences.getFontSize());
         }
     }
 
@@ -831,6 +856,25 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
 
     public void setExtraKeysView(ExtraKeysView extraKeysView) {
         mExtraKeysView = extraKeysView;
+    }
+
+    /**
+     * Color the extra keys row like the terminal: transparent buttons on the terminal background,
+     * foreground colored text, the cursor color for active modifier keys and a subtle pressed tint.
+     */
+    public void setExtraKeysColors(@NonNull ExtraKeysView extraKeysView) {
+        int[] colors = TerminalColors.COLOR_SCHEME.mDefaultColors;
+        int foreground = colors[TextStyle.COLOR_INDEX_FOREGROUND];
+        int background = colors[TextStyle.COLOR_INDEX_BACKGROUND];
+        extraKeysView.setButtonColors(foreground, colors[TextStyle.COLOR_INDEX_CURSOR], Color.TRANSPARENT,
+            ColorUtils.blendARGB(background, foreground, 0.18f));
+    }
+
+    /** Recreate the extra keys buttons with the current terminal colors. */
+    public void reloadExtraKeysColors() {
+        if (mExtraKeysView == null || mTermuxTerminalExtraKeys == null) return;
+        setExtraKeysColors(mExtraKeysView);
+        mExtraKeysView.reload(mTermuxTerminalExtraKeys.getExtraKeysInfo(), mTerminalToolbarDefaultHeight);
     }
 
     public DrawerLayout getDrawer() {
