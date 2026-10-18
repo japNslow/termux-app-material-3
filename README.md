@@ -1,3 +1,51 @@
+# Termux Material 3
+
+[![Download APK](https://img.shields.io/github/v/release/japNslow/termux-app-material-3?label=Download%20APK&logo=android&color=4A5D92)](https://github.com/japNslow/termux-app-material-3/releases/latest)
+
+An unofficial fork of [Termux](https://github.com/termux/termux-app) with a **Material You (Material 3)** design.
+Неофициальный форк Termux с дизайном **Material You (Material 3)**.
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/1-welcome.png" width="200" alt="Welcome"><br><sub>Welcome · Приветствие</sub></td>
+    <td align="center"><img src="docs/screenshots/2-colors.png" width="200" alt="Terminal colors"><br><sub>Terminal colors · Цвета</sub></td>
+    <td align="center"><img src="docs/screenshots/3-font.png" width="200" alt="Font"><br><sub>Font · Шрифт</sub></td>
+    <td align="center"><img src="docs/screenshots/4-shell.png" width="200" alt="Shell"><br><sub>Shell · Оболочка</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/5-done.png" width="200" alt="Done"><br><sub>Install · Установка</sub></td>
+    <td align="center"><img src="docs/screenshots/6-terminal.png" width="200" alt="Terminal"><br><sub>Terminal · Терминал</sub></td>
+    <td align="center"><img src="docs/screenshots/7-drawer.png" width="200" alt="Drawer"><br><sub>Drawer · Боковое меню</sub></td>
+    <td></td>
+  </tr>
+</table>
+
+### What's new · Что нового
+
+- **Material 3 + Dynamic Color.** The UI follows your wallpaper colors on Android 12+.
+  Интерфейс берёт цвета из обоев (Android 12+).
+- **First run setup.** Five steps (welcome, terminal colors, font, shell, install) instead of the plain "Installing bootstrap packages" dialog. Reopen it any time with the 🎨 button in the drawer.
+  Мастер первой настройки из 5 шагов вместо окна «Installing bootstrap packages». Открывается снова кнопкой 🎨 в боковом меню.
+- **Terminal color schemes.** Material You (generated from the wallpaper and refreshed when it changes), Classic, Catppuccin Mocha, Dracula and Nord.
+  Цветовые схемы терминала: Material You (из обоев), Classic, Catppuccin Mocha, Dracula, Nord.
+- **JetBrains Mono** font is built in, and the font size can be picked in the setup.
+  Встроенный шрифт JetBrains Mono и выбор размера.
+- **Beautiful prompt and greeting.** A two line prompt whose arrow is green, or red after a failed command, plus a new greeting with useful commands.
+  Красивое двухстрочное приглашение (стрелка зелёная, после ошибки красная) и новое приветствие.
+- **Redesigned drawer.** Rounded sheet, pill shaped sessions, and an extra keys row that matches the terminal colors.
+  Новое боковое меню, а панель клавиш окрашена в цвета терминала.
+- Russian translation of the new UI. Русский перевод нового интерфейса.
+
+### Install · Установка
+
+Download an APK from [Releases](https://github.com/japNslow/termux-app-material-3/releases/latest). Use `arm64-v8a` for most phones, or `universal` if unsure. Android 7+ only.
+Скачай APK из [релизов](https://github.com/japNslow/termux-app-material-3/releases/latest): `arm64-v8a` подходит почти всем телефонам, `universal` подходит любому. Только Android 7+.
+
+The APKs are signed with the same public test key as the official Termux GitHub builds, so they install over Termux from GitHub and keep your data. Termux from F-Droid or Google Play, and its plugins, must be uninstalled first. This fork is not affiliated with the Termux team.
+APK подписаны тем же публичным тестовым ключом, что и официальные GitHub-сборки Termux, поэтому ставятся поверх Termux с GitHub с сохранением данных. Termux из F-Droid или Google Play сначала нужно удалить вместе с плагинами. Форк не связан с командой Termux.
+
+***
+
 # Termux application
 
 [![Build status](https://github.com/termux/termux-app/workflows/Build/badge.svg)](https://github.com/termux/termux-app/actions)
